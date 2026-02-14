@@ -3,7 +3,7 @@ name: Workflow 1 - Dependent Jobs (build -> test -> deploy)
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build:
