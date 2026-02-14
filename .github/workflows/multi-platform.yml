@@ -1,0 +1,48 @@
+name: Multi-Platform Workflow
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+
+  ubuntu-job:
+    name: Ubuntu Job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Step 1 - Checkout
+        uses: actions/checkout@v4
+      - name: Step 2 - OS info and file
+        run: |
+          echo "Running on Ubuntu"
+          uname -a
+          echo "Hello from Ubuntu" > test.txt
+          cat test.txt
+
+  macos-job:
+    name: macOS Job
+    runs-on: macos-latest
+    steps:
+      - name: Step 1 - Checkout
+        uses: actions/checkout@v4
+      - name: Step 2 - OS info and file
+        run: |
+          echo "Running on macOS"
+          uname -a
+          echo "Hello from macOS" > test.txt
+          cat test.txt
+
+  windows-job:
+    name: Windows Job
+    runs-on: windows-latest
+    steps:
+      - name: Step 1 - Checkout
+        uses: actions/checkout@v4
+      - name: Step 2 - OS info and file
+        run: |
+          echo "Running on Windows"
+          systeminfo
+          echo Hello from Windows > test.txt
+          type test.txt
+
